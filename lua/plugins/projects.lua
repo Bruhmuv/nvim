@@ -15,8 +15,8 @@ return {
                 end
             end
         end
-        LazyVim.on_load("telescope.nvim", function()
-            require("telescope").load_extension("projects")
+        LazyVim.on_load("fzf.nvim", function()
+            require("fzf-lua").load_extension("projects")
         end)
     end,
 }
