@@ -1,6 +1,15 @@
 return {
     "snacks.nvim",
     opts = {
+        explorer = { enabled = false },
+        terminal = {
+            win = {
+                style = "float",
+                border = "rounded",
+                width = math.floor(vim.o.columns * 0.65),
+                height = math.floor(vim.o.lines * 0.65),
+            },
+        },
         dashboard = {
             preset = {
                 pick = function(cmd, opts)
