@@ -15,8 +15,5 @@ return {
                 end
             end
         end
-        LazyVim.on_load("fzf.nvim", function()
-            require("fzf-lua").load_extension("projects")
-        end)
     end,
 }
