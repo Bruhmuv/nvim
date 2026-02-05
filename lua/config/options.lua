@@ -8,3 +8,5 @@ vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 
 vim.g.lazyvim_python_ruff = "ruff"
+
+vim.g.lazyvim_picker = "snacks"

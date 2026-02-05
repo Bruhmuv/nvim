@@ -5,6 +5,16 @@ return {
         signature = { enabled = true },
         keymap = {
             preset = "super-tab",
+            -- Use Enter to jump forward through arguments/snippets
+            ["<CR>"] = {
+                "accept",
+                "snippet_forward",
+                "fallback",
+            },
+            ["<S-CR>"] = {
+                "snippet_backward",
+                "fallback",
+            },
         },
         completion = {
             menu = {
