@@ -5,15 +5,34 @@ return {
         signature = { enabled = true },
         keymap = {
             preset = "super-tab",
-            -- Use Enter to jump forward through arguments/snippets
-            ["<CR>"] = {
-                "accept",
-                "snippet_forward",
+
+            ["<Tab>"] = {
+                "select_next",
                 "fallback",
             },
-            ["<S-CR>"] = {
-                "snippet_backward",
+            ["<S-Tab>"] = {
+                "select_prev",
                 "fallback",
+            },
+
+            -- Enter: jump only if a snippet is active
+            ["<CR>"] = {
+                function(cmp)
+                    if cmp.snippet_active() then
+                        return cmp.snippet_forward()
+                    end
+                    return cmp.accept()
+                end,
+                "fallback",
+            },
+
+            ["<S-CR>"] = {
+                function(cmp)
+                    if cmp.snippet_active() then
+                        return cmp.snippet_backward()
+                    end
+                    return cmp.fallback()
+                end,
             },
         },
         completion = {
