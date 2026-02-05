@@ -6,7 +6,9 @@ return {
         keymap = {
             preset = "super-tab",
 
+            -- Completion selection
             ["<Tab>"] = {
+                "accept",
                 "select_next",
                 "fallback",
             },
@@ -15,24 +17,26 @@ return {
                 "fallback",
             },
 
-            -- Enter: jump only if a snippet is active
+            -- Enter: snippet jump OR newline only
             ["<CR>"] = {
                 function(cmp)
                     if cmp.snippet_active() then
-                        return cmp.snippet_forward()
+                        cmp.snippet_forward()
+                        return true
                     end
-                    return cmp.accept()
                 end,
-                "fallback",
+                "fallback", -- this is what actually inserts the newline
             },
 
+            -- Optional: backward snippet jump
             ["<S-CR>"] = {
                 function(cmp)
                     if cmp.snippet_active() then
-                        return cmp.snippet_backward()
+                        cmp.snippet_backward()
+                        return true
                     end
-                    return cmp.fallback()
                 end,
+                "fallback",
             },
         },
         completion = {
