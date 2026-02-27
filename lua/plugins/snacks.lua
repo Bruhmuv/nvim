@@ -11,6 +11,11 @@ return {
                 height = math.floor(vim.o.lines * 0.65),
             },
         },
+        styles = {
+            float = {
+                backdrop = 80,
+            },
+        },
         dashboard = {
             preset = {
                 pick = function(cmd, opts)
