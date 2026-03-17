@@ -1,5 +1,7 @@
 -- transparent background
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+if not vim.g.neovide then
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+end
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
